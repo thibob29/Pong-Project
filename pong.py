@@ -2,7 +2,8 @@
 #coding: utf-8
 
 import pygame
-import random
+import random 
+import cfg
 
 #colours
 white = [255, 255, 255]
@@ -168,9 +169,10 @@ ball = Ball()
 balls = pygame.sprite.Group()
 balls.add(ball)
 
+
 #create the surface
-screen_width = 800
-screen_height = 600
+screen_width = cfg.width()
+screen_height = cfg.height()
 screen_center = ((screen_width / 2), (screen_height / 2))
 screen_haut = ((screen_width / 2), (screen_height / 3))
 screen = pygame.display.set_mode((screen_width, screen_height))
@@ -224,9 +226,6 @@ while running:
             #pause / unpause with p
             if event.key == pygame.K_p:
                 paused = not paused
-            
-            #option
-           # if  event.key == pygame.K_o
 
 
         #stops movement when key is no longer pressed
