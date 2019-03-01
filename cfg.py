@@ -1,8 +1,8 @@
 def width():
-    screen_width = 800
+    screen_width = 641
     return screen_width
 def height():
-    screen_height = 600
+    screen_height = 341
     return screen_height
-    #vitesseballe = 5
-    #vitessebarre = 3
+    #vitesseballe = 2
+    #vitessebarre = 2
