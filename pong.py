@@ -1,4 +1,3 @@
-#!/usr/bin/python3.6
 #coding: utf-8
 
 import pygame
@@ -11,10 +10,9 @@ black = [0, 0, 0]
 red = [255, 0, 0]
 blue = [0, 0, 255]
 green = [0, 255, 0]
-grey = [ 40, 40, 40]
+grey = [40, 40, 40]
 
 class Paddle(pygame.sprite.Sprite):
-
     def __init__(self, x_pos, y_pos):
         super().__init__()
 
@@ -71,7 +69,7 @@ class Ball(pygame.sprite.Sprite):
         '''
         changes balls direction when it hits the top or bottom of the screen
         '''
-        if self.rect.y >= 590:
+        if self.rect.y >= screen_height -10:
             self.y_speed = abs(self.y_speed) * -1
         elif self.rect.y <= 0:
             self.y_speed = abs(self.y_speed)
@@ -212,25 +210,24 @@ while running:
             
         if event.type == pygame.KEYDOWN:
             #z and s movement keys
-            if event.key == pygame.K_z:
-                left_paddle_speed = -8
+            if event.key == pygame.K_w:
+                left_paddle_speed = -6
             elif event.key == pygame.K_s:
-                left_paddle_speed = 8
+                left_paddle_speed = 6
 
             #up and down movement keys
             if event.key == pygame.K_UP:
-                right_paddle_speed = -8
+                right_paddle_speed = -6
             elif event.key == pygame.K_DOWN:
-                right_paddle_speed = 8
+                right_paddle_speed = 6
 
             #pause / unpause with p
             if event.key == pygame.K_p:
                 paused = not paused
 
-
         #stops movement when key is no longer pressed
         elif event.type == pygame.KEYUP:
-            if event.key == pygame.K_z or event.key == pygame.K_s:
+            if event.key == pygame.K_w or event.key == pygame.K_s:
                 left_paddle_speed = 0
             if event.key == pygame.K_UP or event.key == pygame.K_DOWN:
                 right_paddle_speed = 0

@@ -1,11 +1,6 @@
 #coding: utf-8
-
 import tkinter as tk
-from tkinter import *
 import os
-
-#from ClassPong import *
-
 
 class Menu(tk.Frame):
 
@@ -39,7 +34,9 @@ class Menu(tk.Frame):
         self.scaleTailleLargeur=tk.Scale(self, orient=tk.HORIZONTAL, from_=200, to=800, command=self.valueLargeur)
         
         self.boutonValid=tk.Button(self, text="Valider", command=self.validCfg)
-        #self.boutonLaunch=tk.Button(self, text="Lancer", command=lambda: "C:\Users\user\Desktop\MATHS\projet math\Pong-Project\pong.py")
+
+        self.boutonJeu=tk.Button(self, text="Jeu en local", command=self.lancerJeu)
+        self.boutonJeuMulti=tk.Button(self, text="Jeu en reseau", command=self.jeuMulti)
 
         self.log=tk.Text(self, height=1, bg='black', fg='white')
 
@@ -54,7 +51,9 @@ class Menu(tk.Frame):
         # self.inputLargeur.grid(row=2, column=5)
 
         self.boutonValid.grid(row=8, column=3)
-        #self.boutonLaunch.grid(row=7, column=7)
+        
+        self.boutonJeu.grid(row=9, column=3)
+        self.boutonJeuMulti.grid(row=10, column=3)
 
         self.scaleTailleLargeur.grid(row=1, column=3, sticky=tk.E)
         self.scaleTailleHauteur.grid(row=2, column=3, sticky=tk.E)
@@ -63,6 +62,14 @@ class Menu(tk.Frame):
         self.scaleVitesseBalle.grid(row=4, column=3, sticky=tk.E)
 
         self.log.grid(row=8, column=0, columnspan=2)
+
+
+    def lancerJeu(self):
+        path=("C:/Users/user/AppData/Local/Programs/Python/Python37-32/python.exe pong.py")
+        os.system(path)
+
+    def jeuMulti(self):
+        print("le jeu est en cours de construction")   
 
     def valueVitesseBarre(self, valueVitBar):
         #s=str("ValBarre=")+valueVitBar+"\n"
